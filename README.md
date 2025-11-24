@@ -1,36 +1,41 @@
-Below is your **GitHub-ready `README.md`** for **VulnForge** — clean, professional, and safe for public release.
+Below is your **GitHub-ready `README.md`** for **RaVector** — clean, professional, and safe for public release.
 Images are delivered as **ASCII-style diagrams** (GitHub-friendly).
 If you later want a separate **/docs folder**, **logo**, or **badges**, I can generate those too.
 
 ---
 
-# **VulnForge – Advanced Automated Vulnerability Scanner**
+# **RaVector – Advanced Automated Vulnerability Scanner**
 
 *A modular, extensible reconnaissance and vulnerability-analysis framework for authorized penetration testing.*
 
 ```
-    _    _       _        _____                 
-   | |  | |     | |      / ____|                
-   | |  | |_ __ | | ___ | |  __  ___  _ __ ___  
-   | |  | | '_ \| |/ _ \| | |_ |/ _ \| '_ ` _ \ 
-   | |__| | | | | |  __/| |__| | (_) | | | | | |
-    \____/|_| |_|_|\___| \_____|\___/|_| |_| |_|   v1.0
+                                                                                                                                    
+8 888888888o.            .8. `8.`888b           ,8' 8 8888888888       ,o888888o. 8888888 8888888888 ,o888888o.     8 888888888o.   
+8 8888    `88.          .888. `8.`888b         ,8'  8 8888            8888     `88.     8 8888    . 8888     `88.   8 8888    `88.  
+8 8888     `88         :88888. `8.`888b       ,8'   8 8888         ,8 8888       `8.    8 8888   ,8 8888       `8b  8 8888     `88  
+8 8888     ,88        . `88888. `8.`888b     ,8'    8 8888         88 8888              8 8888   88 8888        `8b 8 8888     ,88  
+8 8888.   ,88'       .8. `88888. `8.`888b   ,8'     8 888888888888 88 8888              8 8888   88 8888         88 8 8888.   ,88'  
+8 888888888P'       .8`8. `88888. `8.`888b ,8'      8 8888         88 8888              8 8888   88 8888         88 8 888888888P'   
+8 8888`8b          .8' `8. `88888. `8.`888b8'       8 8888         88 8888              8 8888   88 8888        ,8P 8 8888`8b       
+8 8888 `8b.       .8'   `8. `88888. `8.`888'        8 8888         `8 8888       .8'    8 8888   `8 8888       ,8P  8 8888 `8b.     
+8 8888   `8b.    .888888888. `88888. `8.`8'         8 8888            8888     ,88'     8 8888    ` 8888     ,88'   8 8888   `8b.   
+8 8888     `88. .8'       `8. `88888. `8.`          8 888888888888     `8888888P'       8 8888       `8888888P'     8 8888     `88.   v1.0
 ```
 
 ---
 
 ## ⚠️ **Legal & Ethical Notice**
 
-**VulnForge is designed *exclusively* for licensed penetration testers, SOC teams, and researchers performing authorized security assessments.**
+**RaVector is designed *exclusively* for licensed penetration testers, SOC teams, and researchers performing authorized security assessments.**
 Using this tool **against systems you do not own or have explicit permission to test is illegal and strictly prohibited.**
 
-By using VulnForge, you agree that you are conducting **authorized and lawful** testing only.
+By using RaVector, you agree that you are conducting **authorized and lawful** testing only.
 
 ---
 
-# 🔥 About VulnForge
+# 🔥 About RaVector
 
-**VulnForge** is a unified vulnerability-scanning engine that merges host discovery, service enumeration, Nmap-based NSE scanning, and live CVE enrichment using NVD v2.0.
+**RaVector** is a unified vulnerability-scanning engine that merges host discovery, service enumeration, Nmap-based NSE scanning, and live CVE enrichment using NVD v2.0.
 It automates early-stage reconnaissance and produces polished **JSON** and **Excel** reports suitable for penetration tests and audit deliverables.
 
 ### ✨ Key Features
@@ -50,9 +55,9 @@ It automates early-stage reconnaissance and produces polished **JSON** and **Exc
 
 ```
                    ┌────────────────────────┐
-                   │        VulnForge        │
-                   │    (Orchestrator)       │
-                   └─────────────┬───────────┘
+                   │        RaVector        │
+                   │    (Orchestrator       │
+                   └─────────────┬──────────┘
                                  │
         ┌────────────────────────┼────────────────────────┐
         │                        │                        │
@@ -80,7 +85,7 @@ It automates early-stage reconnaissance and produces polished **JSON** and **Exc
 
 ### **1. Install system dependencies**
 
-VulnForge requires **Nmap** installed on the system.
+RaVector requires **Nmap** installed on the system.
 
 **Linux / MacOS:**
 
@@ -125,7 +130,7 @@ python3 Scanner.py --targets 192.168.1.5 --nvd-api-key YOUR_KEY
 
 ---
 
-# 🎯 What VulnForge Does
+# 🎯 What RaVector Does
 
 ### 1. **Host Discovery**
 
@@ -303,5 +308,6 @@ If you want, I can also generate:
 ✅ Screenshots for your GitHub page
 
 Just tell me!
+
 
 
