@@ -112,19 +112,19 @@ pip install python-nmap requests pandas openpyxl
 ### **Basic scan**
 
 ```bash
-python3 Scanner.py --targets 192.168.1.0/24
+python3 RaVector.py --targets 192.168.1.0/24
 ```
 
 ### **Specify output directory**
 
 ```bash
-python3 Scanner.py --targets 10.0.0.0/24 --output pentest_reports
+python3 RaVector.py --targets 10.0.0.0/24 --output pentest_reports
 ```
 
 ### **Override NVD API Key**
 
 ```bash
-python3 Scanner.py --targets 192.168.1.5 --nvd-api-key YOUR_KEY
+python3 RaVector.py --targets 192.168.1.5 --nvd-api-key YOUR_KEY
 ```
 
 ---
@@ -217,7 +217,7 @@ Includes:
 # 🧩 Project Structure
 
 ```
-Scanner.py
+RaVector.py
 └── BasicVulnerabilityScanner
     ├── host_discovery()
     ├── service_enumeration()
@@ -307,6 +307,7 @@ If you want, I can also generate:
 ✅ Screenshots for your GitHub page
 
 Just tell me!
+
 
 
 
