@@ -9,12 +9,14 @@ If you later want a separate **/docs folder**, **logo**, or **badges**, I can ge
 *A modular, extensible reconnaissance and vulnerability-analysis framework for authorized penetration testing.*
 
 ```
-______      _   _           _             
-| ___ \    | | | |         | |            
-| |_/ /__ _| | | | ___  ___| |_ ___  _ __ 
-|    // _` | | | |/ _ \/ __| __/ _ \| '__|
-| |\ \ (_| \ \_/ /  __/ (__| || (_) | |   
-\_| \_\__,_|\___/ \___|\___|\__\___/|_|                                                                    
+8888888b.           888     888                   888                    
+888   Y88b          888     888                   888                    
+888    888          888     888                   888                    
+888   d88P  8888b.  Y88b   d88P  .d88b.   .d8888b 888888 .d88b.  888d888 
+8888888P"      "88b  Y88b d88P  d8P  Y8b d88P"    888   d88""88b 888P"   
+888 T88b   .d888888   Y88o88P   88888888 888      888   888  888 888     
+888  T88b  888  888    Y888P    Y8b.     Y88b.    Y88b. Y88..88P 888     
+888   T88b "Y888888     Y8P      "Y8888   "Y8888P  "Y888 "Y88P"  888                                                             
                                                                          
                                                                           v1.0
 ```
@@ -305,6 +307,7 @@ If you want, I can also generate:
 ✅ Screenshots for your GitHub page
 
 Just tell me!
+
 
 
 
