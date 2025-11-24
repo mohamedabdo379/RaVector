@@ -290,7 +290,7 @@ Submit a pull request or open an issue.
 # 📜 License
 
 Released for **authorized penetration testing only**.
-Describe your licensing here (MIT, Apache2, proprietary, etc.).
+This project is licensed from NTI.
 
 ---
 
@@ -303,4 +303,5 @@ If you want, I can also generate:
 ✅ Screenshots for your GitHub page
 
 Just tell me!
+
 
