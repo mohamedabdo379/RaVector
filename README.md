@@ -57,8 +57,8 @@ It automates early-stage reconnaissance and produces polished **JSON** and **Exc
         ┌────────────────────────┼────────────────────────┐
         │                        │                        │
 ┌───────────────┐       ┌─────────────────┐      ┌────────────────┐
-│ Host Discovery │       │ Service Enum    │      │   NSE Scripts  │
-│   (nmap -sn)   │       │ (ports, banners)│      │ (vuln, smb,…)  │
+│ Host Discovery│       │ Service Enum    │      │   NSE Scripts  │
+│   (nmap -sn)  │       │ (ports, banners)│      │ (vuln, smb,…)  │
 └───────────────┘       └─────────────────┘      └────────────────┘
                                  │
                                  ▼
@@ -303,3 +303,4 @@ If you want, I can also generate:
 ✅ Screenshots for your GitHub page
 
 Just tell me!
+
