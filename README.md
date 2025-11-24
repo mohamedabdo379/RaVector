@@ -1,196 +1,305 @@
-**Here is your full, professional, ready-to-use documentation** for your tool.  
-I’ve named it **VulnForge** (you can change the name anytime — it sounds strong and professional for a commercial pentest recon + vuln scanner).
-
-Everything is written in clean **Markdown** — perfect for GitHub, GitLab, ReadTheDocs, or your future product website.
-
----
-
-# VulnForge – Automated Reconnaissance & Vulnerability Scanner
-
-[![Version](https://img.shields.io/badge/version-1.0-brightgreen)]() [![Python](https://img.shields.io/badge/python-3.8%2B-blue)]() [![License](https://img.shields.io/badge/license-Commercial-red)]()
-
-**Fast • Reliable • NVD-integrated • Pentester-focused**
-
-VulnForge is a powerful, all-in-one reconnaissance and vulnerability scanning tool designed specifically for professional penetration testers and red teams. It combines host discovery, precise service enumeration, NSE vulnerability scripts, and real-time CVE lookup via the official NVD API — all in a single Python script with beautiful JSON + Excel reporting.
-
-Save hours on every assessment. Sell confidence.
+Below is your **GitHub-ready `README.md`** for **VulnForge** — clean, professional, and safe for public release.
+Images are delivered as **ASCII-style diagrams** (GitHub-friendly).
+If you later want a separate **/docs folder**, **logo**, or **badges**, I can generate those too.
 
 ---
 
-## Features
+# **VulnForge – Advanced Automated Vulnerability Scanner**
 
-- **Host Discovery** (`-sn` ping sweep) on networks/ranges
-- **Smart Port & Service Scanning** (root → SYN scan, non-root → TCP connect)
-- **Accurate Version Detection** (`--version-intensity 5`)
-- **Built-in NSE Vulnerability Scripts** (`vuln`, `http-vuln-*`, `smb-vuln-*`, etc.)
-- **Real-time CVE Lookup** using official **NVD 2.0 API**
-- **Intelligent Software Mapping** (Apache, Nginx, OpenSSH, IIS, MySQL, PostgreSQL, etc.)
-- **Automatic Risk Scoring** (Critical / High / Medium / Low)
-- **Professional Reports**: JSON + Excel (with Executive Summary sheet)
-- **Rate-limit aware** NVD client with retry + caching
-- Single-file deployment – no complex setup
+*A modular, extensible reconnaissance and vulnerability-analysis framework for authorized penetration testing.*
 
----
-
-## Screenshots
-
-*(You can replace these with real ones later)*
-
-```markdown
-![Scan in progress](https://via.placeholder.com/800x400?text=Scan+Output+Example)
-![Excel Report](https://via.placeholder.com/800x500?text=Excel+Report+with+Executive+Summary)
+```
+    _    _       _        _____                 
+   | |  | |     | |      / ____|                
+   | |  | |_ __ | | ___ | |  __  ___  _ __ ___  
+   | |  | | '_ \| |/ _ \| | |_ |/ _ \| '_ ` _ \ 
+   | |__| | | | | |  __/| |__| | (_) | | | | | |
+    \____/|_| |_|_|\___| \_____|\___/|_| |_| |_|   v1.0
 ```
 
 ---
 
-## Installation
+## ⚠️ **Legal & Ethical Notice**
 
-### Requirements
+**VulnForge is designed *exclusively* for licensed penetration testers, SOC teams, and researchers performing authorized security assessments.**
+Using this tool **against systems you do not own or have explicit permission to test is illegal and strictly prohibited.**
 
-```bash
-Python 3.8+
-nmap (the actual binary must be installed and in PATH)
+By using VulnForge, you agree that you are conducting **authorized and lawful** testing only.
+
+---
+
+# 🔥 About VulnForge
+
+**VulnForge** is a unified vulnerability-scanning engine that merges host discovery, service enumeration, Nmap-based NSE scanning, and live CVE enrichment using NVD v2.0.
+It automates early-stage reconnaissance and produces polished **JSON** and **Excel** reports suitable for penetration tests and audit deliverables.
+
+### ✨ Key Features
+
+* 🔍 **Network discovery** (Nmap -sn)
+* 🧩 **Service & version enumeration** with automatic SYN/TCP fallback
+* 🧪 **NSE vulnerability scripts**
+* 🌐 **CVE lookup using the NVD 2.0 API**
+* 📊 **JSON & Excel reporting**
+* 🧠 **Risk scoring using CVSS**
+* ⚡ **Automatic rate-limiting & retry logic for NVD requests**
+* 🎯 **Modules combined into one fully orchestrated scanning engine**
+
+---
+
+# 🏗 Architecture
+
+```
+                   ┌────────────────────────┐
+                   │        VulnForge        │
+                   │    (Orchestrator)       │
+                   └─────────────┬───────────┘
+                                 │
+        ┌────────────────────────┼────────────────────────┐
+        │                        │                        │
+┌───────────────┐       ┌─────────────────┐      ┌────────────────┐
+│ Host Discovery │       │ Service Enum    │      │   NSE Scripts  │
+│   (nmap -sn)   │       │ (ports, banners)│      │ (vuln, smb,…)  │
+└───────────────┘       └─────────────────┘      └────────────────┘
+                                 │
+                                 ▼
+                        ┌──────────────────┐
+                        │ CVE Integration  │
+                        │ (NVD API v2.0)   │
+                        └─────────┬────────┘
+                                  │
+                                  ▼
+                        ┌──────────────────┐
+                        │ Report Generator │
+                        │ JSON / Excel     │
+                        └──────────────────┘
 ```
 
-### Install system dependency (Nmap)
+---
 
-**Linux:**
-```bash
-sudo apt install nmap -y        # Debian/Ubuntu
-sudo yum install nmap -y        # CentOS/RHEL
-```
+# 📦 Installation
 
-**macOS:**
+### **1. Install system dependencies**
+
+VulnForge requires **Nmap** installed on the system.
+
+**Linux / MacOS:**
+
 ```bash
+sudo apt install nmap
+# or
 brew install nmap
 ```
 
-**Windows:** Download from https://nmap.org/download.html
+**Windows:**
+Download Nmap from: [https://nmap.org/download.html](https://nmap.org/download.html)
 
-### Install Python dependencies
+---
+
+### **2. Install Python modules**
 
 ```bash
 pip install python-nmap requests pandas openpyxl
 ```
 
-### (Optional) Set your own NVD API key (recommended for production/sale)
+---
+
+# 🚀 Usage
+
+### **Basic scan**
 
 ```bash
-export NVD_API_KEY="your-real-nvd-key-here"
+python3 Scanner.py --targets 192.168.1.0/24
 ```
 
-> A free NVD API key can be obtained here: https://nvd.nist.gov/developers/request-an-api-key  
-> (The tool ships with a working default key for demo purposes only)
-
----
-
-## Usage
+### **Specify output directory**
 
 ```bash
-python3 VulnForge.py --targets <target> [options]
+python3 Scanner.py --targets 10.0.0.0/24 --output pentest_reports
 ```
 
-### Examples
+### **Override NVD API Key**
 
 ```bash
-# Scan a single host
-python3 VulnForge.py -t 192.168.1.100
-
-# Scan an entire subnet (auto host discovery)
-python3 VulnForge.py -t 192.168.10.0/24
-
-# Multiple targets
-python3 VulnForge.py -t 10.0.0.5,10.0.0.10-10.0.0.20,192.168.1.0/24
-
-# Custom output directory + your own NVD key
-python3 VulnForge.py -t 172.16.0.0/16 -o my_client_reports --nvd-api-key "abcd1234-..."
+python3 Scanner.py --targets 192.168.1.5 --nvd-api-key YOUR_KEY
 ```
 
-### Command-line Options
+---
 
-| Option             | Description                                    | Default         |
-|-------------------|------------------------------------------------|-----------------|
-| `--targets`, `-t` | Targets (IP, range, CIDR, comma-separated)     | **Required**    |
-| `--output`, `-o`  | Output directory for reports                   | `reports`       |
-| `--nvd-api-key`   | Override NVD API key                           | Uses env → default |
+# 🎯 What VulnForge Does
+
+### 1. **Host Discovery**
+
+Uses Nmap `-sn` to identify live hosts.
+
+### 2. **Service Enumeration**
+
+* Detects open ports
+* Extracts service name, product, and version
+* Auto-uses `-sS` if running as root
+
+### 3. **NSE Vulnerability Scripts**
+
+Runs modules like:
+
+* `vuln`
+* `http-vuln-*`
+* `smb-vuln-*`
+* `ssh-auth-methods`
+
+### 4. **CVE Enrichment**
+
+Queries:
+
+```
+https://services.nvd.nist.gov/rest/json/cves/2.0
+```
+
+Extracts:
+
+* CVE ID
+* English description
+* CVSS v2 / v3 score
+* Associates the CVE with:
+
+  * host
+  * port
+  * protocol
+  * service
+
+### 5. **Report Generation**
+
+Produces **2 outputs:**
+
+#### 📄 JSON report
+
+```
+reports/vulnerability_scan_YYYYMMDD_HHMMSS.json
+```
+
+#### 📊 Excel report
+
+```
+reports/vulnerability_scan_YYYYMMDD_HHMMSS.xlsx
+```
+
+Includes:
+
+* Executive summary
+* Risk distribution
+* Host details
+* Per-service vulnerabilities
+* Recommendations
 
 ---
 
-## Output & Reports
+# 📝 Example Output (JSON)
 
-After completion, two files are generated in the output directory:
-
-1. `vulnerability_scan_YYYYMMDD_HHMMSS.json` – Full structured data (great for automation)
-2. `vulnerability_scan_YYYYMMDD_HHMMSS.xlsx` – Human-readable Excel with two sheets:
-   - **Vulnerabilities** – Full list with CVE, CVSS, port, service
-   - **Executive_Summary** – High-level stats and recommendations (perfect for client delivery)
-
----
-
-## Ethical & Legal Disclaimer (MANDATORY FOR COMMERCIAL TOOLS)
-
-> VulnForge is a security research and authorized penetration testing tool.  
-> You **MUST** have explicit written permission from the system owner before scanning any target that you do not own or are not authorized to test.  
-> Unauthorized scanning is illegal in most jurisdictions.  
-> The authors and distributors assume **no liability** for misuse of this software.
-
-Include this in your EULA when selling.
+```json
+{
+  "scan_metadata": {
+    "timestamp": "2025-01-17T22:11:36",
+    "scanner_version": "MergedScanner 1.0",
+    "targets_scanned": 3
+  },
+  "executive_summary": {
+    "total_hosts_scanned": 3,
+    "total_vulnerabilities_found": 12
+  }
+}
+```
 
 ---
 
-## Roadmap (Future Premium Features)
+# 🧩 Project Structure
 
-- [ ] Web GUI dashboard (Flask/FastAPI)
-- [ ] Scheduled scans & email reports
-- [ ] Exploit suggestion module (Exploit-DB + Metasploit integration)
-- [ ] Custom NSE script packs
-- [ ] Team collaboration & client portal
-- [ ] Commercial license with support & updates
+```
+Scanner.py
+└── BasicVulnerabilityScanner
+    ├── host_discovery()
+    ├── service_enumeration()
+    └── run_nse_scripts()
 
----
+└── CVEIntegration
+    ├── search_cve_online()
+    ├── analyze_service_vulnerabilities()
+    └── extract_software_info()
 
-## Frequently Asked Questions
-
-**Q: Why is Excel report missing?**  
-A: Install pandas & openpyxl: `pip install pandas openpyxl`
-
-**Q: NVD requests are failing (403)**  
-A: The default API key has rate limits. Get your own free key from NIST and use `--nvd-api-key` or `NVD_API_KEY` env var.
-
-**Q: Can I run this on Windows?**  
-A: Yes! Just install Nmap for Windows and run with Python.
-
-**Q: Is it safe to share the script with clients?**  
-A: Yes — but remove or replace the hard-coded default API key before commercial distribution.
+└── ReportGenerator
+    ├── generate_json_report()
+    ├── generate_excel_report()
+    └── risk & summary helpers
+```
 
 ---
 
-## License
+# 🔒 Security Notes
 
-**Commercial License** – You are free to sell, rebrand, and distribute VulnForge under your own brand.  
-Source code redistribution requires purchasing a commercial license (contact below).
-
----
-
-## Contact & Support
-
-For licensing, custom development, or white-label versions:
-
-**Email:** [mohamedabdofares4@gmail.com]  
-**Website:**  (coming soon)
-
-Made with ❤️ for the offensive security community.
+* The NVD API key is **configurable**, and a default placeholder exists for convenience.
+* Rate limits are handled automatically via exponential backoff.
+* No scanning occurs without explicit user execution.
 
 ---
 
-**You now have a complete, professional, and sell-ready documentation!**
+# 🛠 Troubleshooting
 
-Just save this as `README.md` in your project root, create a `reports/` folder, and you’re ready to impress clients or post on GitHub/HackerOne/any marketplace.
+### **“python-nmap required”**
 
-Want me to:
-- Generate a logo?
-- Create a one-page sales landing page (HTML)?
-- Package it as a PyPI wheel?
-- Add a commercial license template?
+Install it:
 
-Just say the word — I’ve got you covered! 🚀
+```bash
+pip install python-nmap
+```
+
+### **Excel export doesn’t work**
+
+Install:
+
+```bash
+pip install pandas openpyxl
+```
+
+### **403 Forbidden from NVD**
+
+* Your API key may be missing or expired
+* Set a new key via:
+
+```bash
+export NVD_API_KEY="yourkey"
+```
+
+---
+
+# 🗺 Roadmap (Future Enhancements)
+
+* [ ] HTML & PDF report output
+* [ ] Multi-threaded scanning
+* [ ] Plugin-based NSE module selection
+* [ ] Dashboard web UI
+* [ ] Asset tagging + inventory management
+* [ ] Machine-learning driven risk prioritization
+
+---
+
+# 🤝 Contributing
+
+Contributions, improvements, and bug reports are welcome!
+Submit a pull request or open an issue.
+
+---
+
+# 📜 License
+
+Released for **authorized penetration testing only**.
+Describe your licensing here (MIT, Apache2, proprietary, etc.).
+
+---
+
+If you want, I can also generate:
+
+✅ A project logo
+✅ A `/docs` directory with multi-file documentation
+✅ A professional PDF manual
+✅ Badges (Build, Version, License)
+✅ Screenshots for your GitHub page
+
+Just tell me!
