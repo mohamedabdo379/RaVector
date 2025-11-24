@@ -297,19 +297,3 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
-
-If you want, I can also generate:
-
-✅ A project logo
-✅ A `/docs` directory with multi-file documentation
-✅ A professional PDF manual
-✅ Badges (Build, Version, License)
-✅ Screenshots for your GitHub page
-
-Just tell me!
-
-
-
-
-
-
