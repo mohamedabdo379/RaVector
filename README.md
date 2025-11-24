@@ -1,7 +1,3 @@
-Below is your **GitHub-ready `README.md`** for **RaVector** — clean, professional, and safe for public release.
-Images are delivered as **ASCII-style diagrams** (GitHub-friendly).
-If you later want a separate **/docs folder**, **logo**, or **badges**, I can generate those too.
-
 ---
 
 # **RaVector – Advanced Automated Vulnerability Scanner**
@@ -297,3 +293,4 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
