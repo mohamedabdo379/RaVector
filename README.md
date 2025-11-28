@@ -2,9 +2,6 @@
 
 *A modular, extensible reconnaissance and vulnerability-analysis framework for authorized penetration testing.*
 
-Status: Under Active Testing & Feature Expansion
-Author: RaVector Project Team
-
 ```
 8888888b.           888     888                   888                    
 888   Y88b          888     888                   888                    
@@ -292,6 +289,7 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
 
 
 
