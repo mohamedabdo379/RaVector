@@ -1,6 +1,7 @@
 # **RaVector – Advanced Automated Vulnerability Scanner**
 
 *A modular, extensible reconnaissance and vulnerability-analysis framework for authorized penetration testing.*
+
 Status: Under Active Testing & Feature Expansion
 Author: RaVector Project Team
 
@@ -291,6 +292,7 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
 
 
 
