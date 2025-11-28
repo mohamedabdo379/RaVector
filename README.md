@@ -14,7 +14,13 @@
                                                                          
                                                                           v1.0
 ```
+📌 Abstract
 
+RaVector is a fully automated command-line reconnaissance and vulnerability intelligence framework built for professional penetration testers. It performs host discovery, port scanning, service enumeration, CVE mapping (via NVD 2.0 API), risk scoring, and vulnerability intelligence enrichment.
+
+Each scan automatically generates PDF + JSON reports and emails the final report to the pentester. RaVector additionally provides vulnerability-specific exploitation suggestions, a list of potential exploits, and step-by-step exploitation starting guidance—significantly reducing manual workload and accelerating the offensive security workflow.
+
+RaVector is intended strictly for authorized penetration testing and may not be used for any illegal or unauthorized scanning activities.
 ---
 
 ## ⚠️ **Legal & Ethical Notice**
@@ -291,5 +297,6 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
 
 
