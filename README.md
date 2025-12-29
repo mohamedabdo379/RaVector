@@ -74,16 +74,164 @@ It automates early-stage reconnaissance and produces polished **JSON** and **Exc
 
 # 📦 Installation
 
-### **1. Install system dependencies**
+This guide explains how to set up a clean environment and install all required dependencies to run **RaVector** successfully.
 
-RaVector requires **Nmap** installed on the system.
+---
 
-**Linux / MacOS:**
+### ✅ Prerequisites
+
+Make sure your system meets the following requirements:
+
+* **Operating System:** Linux, macOS, or Windows (WSL recommended)
+* **Python Version:** Python **3.8+**
+* **Privileges:** Administrator / root access (required for some scans)
+* **Internet Connection:** Required for NVD API and email reporting
+
+Check Python version:
 
 ```bash
+python3 --version
+```
+
+---
+
+### 📦 Step 1: Install Nmap
+
+RaVector uses **Nmap** as its scanning engine.
+
+**Linux (Ubuntu/Debian):**
+
+```bash
+sudo apt update
 sudo apt install nmap
-# or
+```
+
+**macOS (Homebrew):**
+
+```bash
 brew install nmap
+```
+
+**Windows:**
+
+* Download and install Nmap from: [https://nmap.org/download.html](https://nmap.org/download.html)
+* Ensure `nmap` is added to your system PATH
+
+Verify installation:
+
+```bash
+nmap --version
+```
+
+---
+
+### 📥 Step 2: Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/RaVector.git
+cd RaVector
+```
+
+---
+
+### 🧪 Step 3: Create a Virtual Environment (Recommended)
+
+Using a virtual environment is strongly recommended to avoid dependency conflicts.
+
+```bash
+python3 -m venv venv
+```
+
+Activate the virtual environment:
+
+**Linux / macOS:**
+
+```bash
+source venv/bin/activate
+```
+
+**Windows (PowerShell):**
+
+```powershell
+venv\Scripts\Activate.ps1
+```
+
+You should see `(venv)` in your terminal once activated.
+
+---
+
+### 🔄 Step 4: Upgrade pip
+
+```bash
+pip install --upgrade pip
+```
+
+---
+
+### 📚 Step 5: Install Python Dependencies
+
+Install all libraries required by RaVector:
+
+```bash
+pip install python-nmap requests pandas openpyxl apscheduler pytz pyfiglet colorama
+```
+
+These libraries are used for:
+
+* Network scanning
+* CVE intelligence retrieval
+* Report generation
+* Task scheduling
+* CLI enhancements
+
+---
+
+### 🔐 Step 6: Configure NVD API Key (Optional but Recommended)
+
+To enable CVE lookups from the National Vulnerability Database:
+
+```bash
+export NVD_API_KEY="your_nvd_api_key"
+```
+
+Request an API key from:
+[https://nvd.nist.gov/developers/request-an-api-key](https://nvd.nist.gov/developers/request-an-api-key)
+
+---
+
+### 📧 Step 7: Configure Email Reporting (Optional)
+
+RaVector can automatically email PDF reports after each scan.
+
+Set the following environment variables:
+
+```bash
+export SMTP_SERVER="smtp.gmail.com"
+export SMTP_PORT=587
+export EMAIL_ADDRESS="your_email@example.com"
+export EMAIL_PASSWORD="your_email_password"
+```
+
+> ⚠️ For Gmail users, use an **App Password** instead of your main password.
+
+---
+
+### ▶️ Step 8: Verify Installation
+
+Run the following command to confirm successful setup:
+
+```bash
+python3 RaVector.py --help
+```
+
+If the help menu appears, RaVector is ready to use ✅
+
+---
+
+### 🛑 Deactivate Virtual Environment (Optional)
+
+```bash
+deactivate
 ```
 
 **Windows:**
@@ -289,6 +437,7 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
 
 
 
