@@ -70,6 +70,117 @@ It automates early-stage reconnaissance and produces polished **JSON** and **Exc
                         └──────────────────┘
 ```
 
+# 🎯 What RaVector Does
+
+### 1. **Host Discovery**
+
+Uses Nmap `-sn` to identify live hosts.
+
+### 2. **Service Enumeration**
+
+* Detects open ports
+* Extracts service name, product, and version
+* Auto-uses `-sS` if running as root
+
+### 3. **NSE Vulnerability Scripts**
+
+Runs modules like:
+
+* `vuln`
+* `http-vuln-*`
+* `smb-vuln-*`
+* `ssh-auth-methods`
+
+### 4. **CVE Enrichment**
+
+Queries:
+
+```
+https://services.nvd.nist.gov/rest/json/cves/2.0
+```
+
+Extracts:
+
+* CVE ID
+* English description
+* CVSS v2 / v3 score
+* Associates the CVE with:
+
+  * host
+  * port
+  * protocol
+  * service
+
+### 5. **Report Generation**
+
+Produces **2 outputs:**
+
+#### 📄 JSON and PDF report
+
+```
+reports/vulnerability_scan_YYYYMMDD_HHMMSS.json
+reports/vulnerability_scan_YYYYMMDD_HHMMSS.pdf
+```
+
+---
+
+# 📝 Example Output (JSON)
+
+```json
+{
+  "scan_metadata": {
+    "timestamp": "2025-01-17T22:11:36",
+    "scanner_version": "MergedScanner 1.0",
+    "targets_scanned": 3
+  },
+  "executive_summary": {
+    "total_hosts_scanned": 3,
+    "total_vulnerabilities_found": 12
+  }
+}
+```
+
+---
+
+# 🧩 Project Structure
+
+```
+RaVector.py
+└── BasicVulnerabilityScanner
+    ├── host_discovery()
+    ├── service_enumeration()
+    └── run_nse_scripts()
+
+└── CVEIntegration
+    ├── search_cve_online()
+    ├── analyze_service_vulnerabilities()
+    └── extract_software_info()
+
+└── ReportGenerator
+    ├── generate_json_report()
+    ├── generate_excel_report()
+    └── risk & summary helpers
+```
+
+---
+
+# 🔒 Security Notes
+
+* The NVD API key is **configurable**, and a default placeholder exists for convenience.
+* Rate limits are handled automatically via exponential backoff.
+* No scanning occurs without explicit user execution.
+
+
+---
+
+# 🗺 Roadmap (Future Enhancements)
+
+* [ ] HTML & PDF report output
+* [ ] Multi-threaded scanning
+* [ ] Plugin-based NSE module selection
+* [ ] Dashboard web UI
+* [ ] Asset tagging + inventory management
+* [ ] Machine-learning driven risk prioritization
 ---
 
 # 📦 Installation
@@ -415,104 +526,6 @@ exploit
 
 ---
 
-# 🎯 What RaVector Does
-
-### 1. **Host Discovery**
-
-Uses Nmap `-sn` to identify live hosts.
-
-### 2. **Service Enumeration**
-
-* Detects open ports
-* Extracts service name, product, and version
-* Auto-uses `-sS` if running as root
-
-### 3. **NSE Vulnerability Scripts**
-
-Runs modules like:
-
-* `vuln`
-* `http-vuln-*`
-* `smb-vuln-*`
-* `ssh-auth-methods`
-
-### 4. **CVE Enrichment**
-
-Queries:
-
-```
-https://services.nvd.nist.gov/rest/json/cves/2.0
-```
-
-Extracts:
-
-* CVE ID
-* English description
-* CVSS v2 / v3 score
-* Associates the CVE with:
-
-  * host
-  * port
-  * protocol
-  * service
-
-### 5. **Report Generation**
-
-Produces **2 outputs:**
-
-#### 📄 JSON report
-
-```
-reports/vulnerability_scan_YYYYMMDD_HHMMSS.json
-```
-
----
-
-# 📝 Example Output (JSON)
-
-```json
-{
-  "scan_metadata": {
-    "timestamp": "2025-01-17T22:11:36",
-    "scanner_version": "MergedScanner 1.0",
-    "targets_scanned": 3
-  },
-  "executive_summary": {
-    "total_hosts_scanned": 3,
-    "total_vulnerabilities_found": 12
-  }
-}
-```
-
----
-
-# 🧩 Project Structure
-
-```
-RaVector.py
-└── BasicVulnerabilityScanner
-    ├── host_discovery()
-    ├── service_enumeration()
-    └── run_nse_scripts()
-
-└── CVEIntegration
-    ├── search_cve_online()
-    ├── analyze_service_vulnerabilities()
-    └── extract_software_info()
-
-└── ReportGenerator
-    ├── generate_json_report()
-    ├── generate_excel_report()
-    └── risk & summary helpers
-```
-
----
-
-# 🔒 Security Notes
-
-* The NVD API key is **configurable**, and a default placeholder exists for convenience.
-* Rate limits are handled automatically via exponential backoff.
-* No scanning occurs without explicit user execution.
 
 ---
 
@@ -542,18 +555,6 @@ pip install pandas openpyxl
 ```bash
 export NVD_API_KEY="yourkey"
 ```
-
----
-
-# 🗺 Roadmap (Future Enhancements)
-
-* [ ] HTML & PDF report output
-* [ ] Multi-threaded scanning
-* [ ] Plugin-based NSE module selection
-* [ ] Dashboard web UI
-* [ ] Asset tagging + inventory management
-* [ ] Machine-learning driven risk prioritization
-
 ---
 
 # 🤝 Contributing
@@ -569,6 +570,7 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
 
 
 
