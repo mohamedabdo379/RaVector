@@ -173,7 +173,7 @@ pip install --upgrade pip
 Install all libraries required by RaVector:
 
 ```bash
-pip install python-nmap requests pandas openpyxl apscheduler pytz pyfiglet colorama
+pip install python-nmap requests pandas openpyxl apscheduler pytz fpdf pyfiglet colorama 
 ```
 
 These libraries are used for:
@@ -222,33 +222,197 @@ Download Nmap from: [https://nmap.org/download.html](https://nmap.org/download.h
 
 ---
 
-### **2. Install Python modules**
+## 🧭 Usage & CLI Navigation
+
+RaVector operates through an **interactive command-line interface (CLI)** designed to be intuitive, fast, and efficient for penetration testers.
+Once launched, users interact with RaVector using structured commands grouped by purpose.
+
+When the CLI starts, you will see the RaVector banner and the prompt:
+
+![RaVector Termenal](https://github.com/user-attachments/assets/f073cc30-b2b6-4935-af60-9f0407140cd8)
+
+```
+RaVector >>
+```
+
+From here, you can configure settings, run scans, schedule jobs, and access exploitation assistance.
+
+---
+
+### 🛠 Configuration Commands
+
+These commands allow you to define default values that RaVector will use during scans.
+
+```
+set default targets <value>
+```
+
+* Sets the default scan targets
+* Accepts a single IP, multiple IPs, or CIDR ranges
+* Example:
 
 ```bash
-pip install python-nmap requests pandas openpyxl
+set default targets 192.168.1.0/24
+```
+
+```
+set default output <path>
+```
+
+* Sets the default directory where reports will be saved
+* Supports TAB auto-completion for paths
+* Example:
+
+```bash
+set default output reports/
+```
+
+```
+set default nvd_api_key <key>
+```
+
+* Sets the default NVD API key for CVE lookups
+* Example:
+
+```bash
+set default nvd_api_key YOUR_API_KEY_HERE
 ```
 
 ---
 
-# 🚀 Usage
+### ⚡ Immediate Scan Commands
 
-### **Basic scan**
+These commands allow you to start scans instantly.
 
-```bash
-python3 RaVector.py --targets 192.168.1.0/24
+```
+scan now
 ```
 
-### **Specify output directory**
+* Starts a scan using the currently configured default settings
+* Automatically performs:
 
-```bash
-python3 RaVector.py --targets 10.0.0.0/24 --output pentest_reports
+  * Host discovery
+  * Service enumeration
+  * CVE mapping
+  * Report generation
+  * Email delivery
+
+```
+scan now targets=<ips> output=<dir>
 ```
 
-### **Override NVD API Key**
+* Runs a scan with temporary overrides
+* Does not change saved defaults
+* Example:
 
 ```bash
-python3 RaVector.py --targets 192.168.1.5 --nvd-api-key YOUR_KEY
+scan now targets=10.10.10.5 output=custom_reports/
 ```
+
+---
+
+### ⏱ Scheduling Commands
+
+RaVector supports scheduled scans using a cron-like format.
+
+```
+schedule add <id> <min> <hour> <day> <month> <day-in-week>
+```
+
+* Adds a new scheduled scan
+* Example (run every day at 02:00):
+
+```bash
+schedule add daily_scan 0 2 * * *
+```
+
+```
+schedule list
+```
+
+* Displays all currently scheduled scan jobs
+
+```
+schedule remove <id>
+```
+
+* Removes a scheduled scan by its ID
+* Example:
+
+```bash
+schedule remove daily_scan
+```
+
+---
+
+### ⚔ Exploitation Menu
+
+```
+exploit
+```
+
+* Opens the exploitation assistant menu
+* Provides exploitation guidance for common services such as:
+
+  * FTP
+  * NFS
+  * SSH
+  * SMB
+* Displays recommended tools and starting steps based on detected vulnerabilities
+
+This feature is intended to **guide the pentester**, not perform automatic exploitation.
+
+---
+
+### 📋 General Commands
+
+```
+help
+```
+
+* Displays the full CLI help menu with all available commands
+
+```
+exit
+```
+
+* Safely exits the RaVector CLI
+
+---
+
+### 🧠 Typical Workflow Example
+
+1. Set defaults:
+
+```bash
+set default targets 192.168.1.0/24
+set default output reports/
+```
+
+2. Start a scan:
+
+```bash
+scan now
+```
+
+3. Review the results:
+
+* PDF report is generated
+* PDF is automatically emailed to the pentester
+
+4. Use exploitation guidance:
+
+```bash
+exploit
+```
+
+---
+
+### 📌 Notes
+
+* Most scans require **administrator/root privileges**
+* Internet access is required for CVE lookups and email delivery
+* Scheduled scans will run automatically even when the user is not present
 
 ---
 
@@ -302,20 +466,6 @@ Produces **2 outputs:**
 ```
 reports/vulnerability_scan_YYYYMMDD_HHMMSS.json
 ```
-
-#### 📊 Excel report
-
-```
-reports/vulnerability_scan_YYYYMMDD_HHMMSS.xlsx
-```
-
-Includes:
-
-* Executive summary
-* Risk distribution
-* Host details
-* Per-service vulnerabilities
-* Recommendations
 
 ---
 
@@ -420,6 +570,7 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
 
 
 
