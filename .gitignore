@@ -1,8 +1,40 @@
-# NVD API keys & reports
-.env
-NVD_API_KEY
-*.json
-*.xlsx
-reports/
+#A .gitignore file is used to tell Git (GitHub) which files and directories it should NOT track or upload to the repository.
+#In short:
+#👉 It keeps the repo clean, secure, and professional.
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+venv/
+.env/
+.env.*
+
+# Reports (generated output)
+reports/
+*.pdf
+*.json
+*.xlsx
+
+# Logs
+*.log
+
+# Secrets
+*.key
+*.pem
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Nmap output
+*.nmap
+*.gnmap
+*.xml
