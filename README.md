@@ -199,24 +199,7 @@ Request an API key from:
 
 ---
 
-### 📧 Step 7: Configure Email Reporting (Optional)
-
-RaVector can automatically email PDF reports after each scan.
-
-Set the following environment variables:
-
-```bash
-export SMTP_SERVER="smtp.gmail.com"
-export SMTP_PORT=587
-export EMAIL_ADDRESS="your_email@example.com"
-export EMAIL_PASSWORD="your_email_password"
-```
-
-> ⚠️ For Gmail users, use an **App Password** instead of your main password.
-
----
-
-### ▶️ Step 8: Verify Installation
+### ▶️ Step 7: Verify Installation
 
 Run the following command to confirm successful setup:
 
@@ -234,7 +217,7 @@ If the help menu appears, RaVector is ready to use ✅
 deactivate
 ```
 
-**Windows:**
+### **Windows:**
 Download Nmap from: [https://nmap.org/download.html](https://nmap.org/download.html)
 
 ---
@@ -437,6 +420,7 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
 
 
 
