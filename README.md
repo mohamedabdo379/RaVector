@@ -227,10 +227,9 @@ Download Nmap from: [https://nmap.org/download.html](https://nmap.org/download.h
 RaVector operates through an **interactive command-line interface (CLI)** designed to be intuitive, fast, and efficient for penetration testers.
 Once launched, users interact with RaVector using structured commands grouped by purpose.
 
-When the CLI starts, you will see the RaVector banner and the prompt:
-
 ![RaVector Termenal](https://github.com/user-attachments/assets/f073cc30-b2b6-4935-af60-9f0407140cd8)
 
+When the CLI starts, you will see the RaVector banner and the prompt:
 ```
 RaVector >>
 ```
@@ -570,6 +569,7 @@ Released for **authorized penetration testing only**.
 This project is licensed from NTI.
 
 ---
+
 
 
 
