@@ -567,7 +567,7 @@ Submit a pull request or open an issue.
 # 📜 License
 
 Released for **authorized penetration testing only**.
-This project is licensed from NTI.
+This project is licensed from NTI. 
 
 ---
 
